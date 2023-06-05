@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ten: MyString
+  noi_dung: MyText
+  trang_thai: false
+  category: one
+
+two:
+  ten: MyString
+  noi_dung: MyText
+  trang_thai: false
+  category: two
