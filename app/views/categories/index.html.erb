@@ -1,14 +1,55 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Categories</h1>
-
-<div id="categories">
-  <% @categories.each do |category| %>
-    <%= render category %>
-    <p>
-      <%= link_to "Show this category", category %>
-    </p>
-  <% end %>
+<% if notice.present? %>
+	<div class="alert alert-primary" role="alert">
+		<%= notice %>
+	</div>
+<% end %>
+<div class="container mt-2">
+	<div class="row d-flex align-items-center">
+		<div class="col">
+			<h1>Categories</h1>
+		</div>
+		<div class="col text-end">
+			<%= link_to "New category", new_category_path, class: 'btn btn-primary' %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-4">
+			<div class="card">
+				<div class="card-body">
+					<h5 class="card-title">New category</h5>
+					<%= render "form", category: @category %>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-8">
+			<div class="card">
+				<div class="card-body">
+					<table class="table">
+						<thead>
+							<tr>
+								<th scope="col">ID</th>
+								<th scope="col">Name</th>
+								<th scope="col">Created_at</th>
+								<th scope="col">Updated_at</th>
+								<th scope="col"></th>
+							</tr>
+						</thead>
+						<tbody>
+							<div id="categories">
+								<% @categories.each do |category| %>
+									<tr>
+										<th scope="row"><%= category.id %></th>
+										<td><%= category.ten %></td>
+										<td><%= category.created_at %></td>
+										<td><%= category.updated_at %></td>
+										<td><%= link_to "Show", category, class: 'btn btn-sm btn-info' %></td>
+									</tr>
+								<% end %>
+							</div>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
-
-<%= link_to "New category", new_category_path %>
