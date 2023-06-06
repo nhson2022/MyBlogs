@@ -155,3 +155,21 @@ end
 		<a class="nav-link" href="<%= categories_path %>">Category</a>
 	</li>
 ```
+## Create footer
+**app/views/layouts/application.html.erb**
+```rb
+<div class="mt-2">
+	<%= render 'layouts/footer' %>
+</div>
+```
+**app/views/layouts/_footer.html.erb**
+```rb
+<footer class="py-5 text-center text-body-secondary bg-body-tertiary">
+  <p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+  <p class="mb-0">
+    <a href="#">Back to top</a>
+  </p>
+</footer>
+```
+## Style for Category and Articles by Bootstrap
+

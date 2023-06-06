@@ -12,26 +12,26 @@
   <% end %>
 
   <div>
-    <%= form.label :ten, style: "display: block" %>
-    <%= form.text_field :ten %>
+    <%= form.label :ten, class: "form-label" %>
+    <%= form.text_field :ten, class: "form-control" %>
   </div>
 
   <div>
-    <%= form.label :noi_dung, style: "display: block" %>
-    <%= form.text_area :noi_dung %>
+    <%= form.label :noi_dung, class: "form-label" %>
+    <%= form.text_area :noi_dung, class: "form-control" %>
   </div>
 
   <div>
-    <%= form.label :trang_thai, style: "display: block" %>
+    <%= form.label :trang_thai, class: "form-label" %>
     <%= form.check_box :trang_thai %>
   </div>
 
   <div>
-    <%= form.label :category_id, style: "display: block" %>
+    <%= form.label :category_id, class: "form-label" %>
     <%= form.text_field :category_id %>
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit class: 'btn btn-primary mt-2' %>
   </div>
 <% end %>
