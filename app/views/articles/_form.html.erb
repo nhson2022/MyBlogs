@@ -1,37 +1,31 @@
 <%= form_with(model: article) do |form| %>
-  <% if article.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(article.errors.count, "error") %> prohibited this article from being saved:</h2>
-
-      <ul>
-        <% article.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div>
-    <%= form.label :ten, class: "form-label" %>
-    <%= form.text_field :ten, class: "form-control" %>
-  </div>
-
-  <div>
-    <%= form.label :noi_dung, class: "form-label" %>
-    <%= form.text_area :noi_dung, class: "form-control" %>
-  </div>
-
-  <div>
-    <%= form.label :trang_thai, class: "form-label" %>
-    <%= form.check_box :trang_thai %>
-  </div>
-
-  <div>
-    <%= form.label :category_id, class: "form-label" %>
-    <%= form.text_field :category_id %>
-  </div>
-
-  <div>
-    <%= form.submit class: 'btn btn-primary mt-2' %>
-  </div>
+	<% if article.errors.any? %>
+		<div style="color: red">
+			<h2><%= pluralize(article.errors.count, "error") %> prohibited this article from being saved:</h2>
+			<ul>
+				<% article.errors.each do |error| %>
+					<li><%= error.full_message %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+	<div>
+		<%= form.label :ten, class: "form-label" %>
+		<%= form.text_field :ten, class: "form-control" %>
+	</div>
+	<div>
+		<%= form.label :noi_dung, class: "form-label" %>
+		<%= form.text_area :noi_dung, class: "form-control" %>
+	</div>
+	<div>
+		<%= form.label :trang_thai, class: "form-label" %>
+		<%= form.check_box :trang_thai %>
+	</div>
+	<div>
+		<%= form.label :category_id, class: "form-label" %>
+		<%= form.collection_select :category_id, Category.order(:ten), :id, :ten, {prompt: true}, {class: "form-control"} %>
+	</div>
+	<div>
+		<%= form.submit class: 'btn btn-primary mt-2' %>
+	</div>
 <% end %>

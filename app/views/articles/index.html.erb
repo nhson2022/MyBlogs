@@ -9,11 +9,35 @@
 		</div>
 	</div>
 </div>
-<div id="articles">
-	<% @articles.each do |article| %>
-		<%= render article %>
-		<p>
-			<%= link_to "Show this article", article %>
-		</p>
-	<% end %>
+<div class="row mt-3">
+	<div class="col-lg-8">
+		<div id="articles" class="card">
+			<div class="card-body">
+				<% @articles.each do |article| %>
+					<div class='card mb-4'>
+						<div class='card-body'>
+							<%= render article %>
+							<p>
+								<%= link_to "Show this article", article, class: 'btn btn-sm btn-info' %>
+							</p>
+						</div>
+					</div>
+				<% end %>
+			</div>
+		</div>
+	</div>
+	<div class="col-lg-4">
+		<div class="card">
+			<h3 class="card-title text-warning">Categories</h3>
+			<div class="card-body">
+				<div id="categories">
+					<ul class="list-group">
+						<% @categories.each do |category| %>
+							<li class="list-group-item"><%= category.ten %></li>
+						<% end %>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
