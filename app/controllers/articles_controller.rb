@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
 
   # GET /articles or /articles.json
   def index
-    @articles = Article.includes(:category).all
+    @articles = Article.includes(:category).where(trang_thai: true).all
     @categories = Category.all
   end
 
@@ -67,6 +67,6 @@ class ArticlesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def article_params
-    params.require(:article).permit(:ten, :noi_dung, :trang_thai, :category_id)
+    params.require(:article).permit(:ten, :noi_dung, :trang_thai, :category_id, :featured_image)
   end
 end

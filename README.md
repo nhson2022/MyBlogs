@@ -173,3 +173,19 @@ end
 ```
 ## Style for Category and Articles by Bootstrap
 
+## Setup Active_Storage
+```bash
+Uncomment gem "image_processing", ">= 1.2"
+bin/rails active_storage:install
+bin/rails db:migrate
+```
+**config/storage.yml**
+```yml
+test:
+  service: Disk
+  root: <%= Rails.root.join("tmp/storage") %>
+
+local:
+  service: Disk
+  root: <%= Rails.root.join("storage") %>
+```

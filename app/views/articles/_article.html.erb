@@ -1,17 +1,27 @@
-<div id="<%= dom_id article %>">
-	<p>
-		<strong><%= article.ten %></strong>
-	</p>
-	<p>
-		<strong>Noi dung:</strong>
-		<%= article.noi_dung %>
-	</p>
-	<p>
-		<strong>Trang thai:</strong>
-		<%= article.trang_thai %>
-	</p>
-	<p>
-		<strong>Category:</strong>
-		<%= article.category&.ten || "Khong co" %>
-	</p>
+<div class="card">
+	<div class="card-body">
+		<div id="<%= dom_id article %>">
+			<div class="text-primary">
+				<strong><%= article.ten %></strong>
+			</div>
+			<% if article.featured_image.attached? %>
+				<%= image_tag article.featured_image, class: "img-fluid rounded-start" %>
+			<% end %>
+			<div class="card-text">
+				<strong>Noi dung:</strong>
+				<%= article.noi_dung %>
+			</div>
+			<div>
+				<% if article.trang_thai %>
+					<strong>Trang thai: </strong>
+					Tin nong
+				<% end  %>
+			</div>
+			<div>
+				<small class="text-danger">
+					Category: <%= article.category&.ten || "Khong co" %>
+				</small>
+			</div>
+		</div>
+	</div>
 </div>
